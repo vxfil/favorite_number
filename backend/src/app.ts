@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+import favNumRouter from './routes/favNumRouter';
+
 const app = express();
 
 dotenv.config();
@@ -17,5 +19,7 @@ mongoose.connect(`${DBASE}`, {
   useCreateIndex: true,
   useFindAndModify: false,
 });
+
+app.use('/', favNumRouter);
 
 app.listen(PORT, () => console.log(`app is listening on the port ${PORT}`));

@@ -1,0 +1,8 @@
+export const SET_LOADING = 'SET_LOADING';
+export const SET_DATE = 'SET_DATE';
+export const GET_PIECHARTS = 'GET_PIECHARTS';
+export const GET_PIECHARTS_REQUESTED = 'GET_PIECHARTS_REQUESTED';
+export const VOTE = 'VOTE';
+export const VOTE_REQUESTED = 'VOTE_REQUESTED';
+export const GET_LOGS = 'GET_LOGS';
+export const GET_LOGS_REQUESTED = 'GET_LOGS_REQUESTED';
