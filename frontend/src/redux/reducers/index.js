@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { favNumberReducer } from './favNumReducer';
+import { favNumReducer } from './favNumReducer';
 
 export default combineReducers({
-  favNumberReducer,
+  favNumReducer,
 });

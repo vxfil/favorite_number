@@ -1,20 +1,9 @@
-import { put, call, takeLatest, takeEvery } from 'redux-saga/effects';
+import { spawn } from 'redux-saga/effects';
 
-import {
-  SET_LOADING,
-  SET_DATE,
-  GET_PIECHARTS,
-  GET_PIECHARTS_REQUESTED,
-  GET_LOGS,
-  GET_LOGS_REQUESTED,
-  VOTE,
-  VOTE_REQUESTED,
-} from '../actions/favNumAction';
+import favNumSaga from './favNumSaga';
 
-import { getPiecharts } from '../api/favNumApi';
+export default function* rootSaga() {
+  console.log('Hello From Redux-Saga!');
 
-function* setDate() {
-  yield put({ type: SET_DATE });
+  yield spawn(favNumSaga);
 }
-
-export default function* favNumSaga() {}

@@ -3,6 +3,8 @@ import * as favNumController from '../controllers/favNumController';
 
 const favNumRouter = express.Router();
 
-favNumRouter.post('/statistic', favNumController.statisctic);
+favNumRouter.get('/statistic', favNumController.statisctic);
+favNumRouter.post('/vote', favNumController.vote);
+favNumRouter.get('/logs', favNumController.logs);
 
 export default favNumRouter;
