@@ -1,7 +1,6 @@
-import { Document } from 'mongoose';
+import { Document } from "mongoose";
 
 export interface IVote extends Document {
-  number: string;
-  value: number;
+  title: string;
   createdAt: Date;
 }

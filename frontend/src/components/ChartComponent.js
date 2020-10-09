@@ -1,16 +1,16 @@
-import React from 'react';
-import { PieChart } from 'react-minimal-pie-chart';
+import React from "react";
+import { PieChart } from "react-minimal-pie-chart";
 
 const colors = [
-  { title: 'One', color: '#E38627' },
-  { title: 'Two', color: '#C13C37' },
-  { title: 'Three', color: '#6A2135' },
-  { title: 'Four', color: '#5d3178' },
-  { title: 'Five', color: '#884c7c' },
-  { title: 'Six', color: '#08baac' },
-  { title: 'Seven', color: '#6d07df' },
-  { title: 'Eighth', color: '#1a2157' },
-  { title: 'Nine', color: '#199ed0' },
+  { title: "1", color: "#E38627" },
+  { title: "2", color: "#C13C37" },
+  { title: "3", color: "#6A2135" },
+  { title: "4", color: "#5d3178" },
+  { title: "5", color: "#884c7c" },
+  { title: "6", color: "#08baac" },
+  { title: "7", color: "#6d07df" },
+  { title: "8", color: "#1a2157" },
+  { title: "9", color: "#199ed0" },
 ];
 
 export const ChartComponent = ({ charts }) => {
@@ -26,6 +26,7 @@ export const ChartComponent = ({ charts }) => {
     return res;
   };
   const data = setColorsForData(charts, colors);
+  console.log(data);
 
   return (
     <PieChart
@@ -35,7 +36,7 @@ export const ChartComponent = ({ charts }) => {
       label={(l) => `${l.dataEntry.title}: ${l.dataEntry.value}`}
       labelPosition={85}
       labelStyle={{
-        fill: 'whitesmoke',
+        fill: "whitesmoke",
         fontSize: 3,
       }}
       data={data}

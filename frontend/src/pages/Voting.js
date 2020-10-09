@@ -1,5 +1,5 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Row,
   Col,
@@ -8,9 +8,9 @@ import {
   ButtonGroup,
   Alert,
   Container,
-} from 'react-bootstrap';
+} from "react-bootstrap";
 
-import { SET_NUMBER, VOTE_REQUESTED } from '../redux/actions/favNumAction';
+import { SET_NUMBER, VOTE_REQUESTED } from "../redux/actions/favNumAction";
 
 export const Voting = () => {
   const dispatch = useDispatch();
@@ -19,6 +19,15 @@ export const Voting = () => {
   const currentNumber = useSelector(
     (state) => state.favNumReducer.currentNumber
   );
+
+  const generateArray = (num) => {
+    const arr = [];
+    for (let i = 0; i < num; i++) {
+      arr.push(i);
+    }
+    return arr;
+  };
+
   return (
     <Container>
       <Row>
@@ -27,7 +36,24 @@ export const Voting = () => {
           {message ? <Alert variant="info">{message}</Alert> : null}
           <ButtonToolbar aria-label="Toolbar with button groups">
             <ButtonGroup>
-              <Button
+              {generateArray(9).map((btn) => {
+                return (
+                  <Button
+                    key={btn + 1}
+                    id={btn + 1}
+                    variant="light"
+                    onClick={(event) =>
+                      dispatch({
+                        type: SET_NUMBER,
+                        payload: event.currentTarget.id,
+                      })
+                    }
+                  >
+                    {btn + 1}
+                  </Button>
+                );
+              })}
+              {/* <Button
                 onClick={(event) =>
                   dispatch({
                     type: SET_NUMBER,
@@ -152,7 +178,7 @@ export const Voting = () => {
                 style={{ backgroundColor: '#199ed0' }}
               >
                 <span style={{ color: 'whitesmoke' }}>9</span>
-              </Button>
+              </Button> */}
             </ButtonGroup>
           </ButtonToolbar>
           {currentNumber ? (
@@ -160,7 +186,7 @@ export const Voting = () => {
               type="submit"
               onClick={() => dispatch({ type: VOTE_REQUESTED })}
             >
-              {loading ? 'Loading ... ' : 'Vote'}
+              {loading ? "Loading ... " : "Vote"}
             </Button>
           ) : (
             <Button disabled>Vote</Button>
